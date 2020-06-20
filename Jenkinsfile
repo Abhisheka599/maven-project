@@ -6,7 +6,6 @@ pipeline {
                 git branch: 'master' , url: 'https://github.com/Abhisheka599/maven-project/'
             }
         }
-    }
         stage ('compile source code'){
              steps {
                  withMaven(jdk: 'localjava', maven: 'localMaven') {
@@ -15,4 +14,4 @@ pipeline {
              }
         }
         }
-
+}
