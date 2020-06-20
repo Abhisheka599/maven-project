@@ -1,10 +1,17 @@
 pipeline {
     agent any 
     stages {
-        stage('Stage 1') {
+        stage('scm checkout') {
             steps {
-                echo 'Hello world!' 
+                git branch: 'master' , url: 'https://github.com/Abhisheka599/maven-project/'
             }
         }
     }
-}
+        stage ('compile source code'){
+             steps {
+                 withMaven(jdk: 'localjave', maven: 'lacalMaven') {
+                     sh 'mvn compile'
+                 }
+             }
+        }
+        }
