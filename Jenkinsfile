@@ -8,7 +8,7 @@ pipeline {
         }
         stage ('compile source code'){
              steps {
-                 maven(jdk: 'localjava', maven:'localMaven') {
+                withmaven(jdk: 'localjava', maven:'localMaven') {
                      sh 'mvn compile'
                  }
              }
